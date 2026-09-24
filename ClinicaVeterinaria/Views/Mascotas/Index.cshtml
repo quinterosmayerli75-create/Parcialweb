@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ClinicaVeterinaria.Models.Mascota>
+
+@{
+    ViewData["Title"] = "Listado de Mascotas";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Listado de Mascotas</h2>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Registrar Nueva Mascota
+        </a>
+    </div>
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover table-striped align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Especie</th>
+                    <th>Edad</th>
+                    <th>Peso (kg)</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Nombre</td>
+                            <td>@item.Especie</td>
+                            <td>@item.Edad</td>
+                            <td>@item.Peso</td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-success me-1" title="Ver Detalles">
+                                        <i class="bi bi-eye"></i> Ver
+                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning me-1" title="Editar">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Eliminar">
+                                        <i class="bi bi-trash"></i> Eliminar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center text-muted py-4">
+                            No hay mascotas registradas actualmente.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

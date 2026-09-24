@@ -1,0 +1,65 @@
+﻿@model ClinicaVeterinaria.Models.Mascota
+
+@{
+    ViewData["Title"] = "Registrar Mascota";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg rounded-4">
+                <div class="card-header bg-primary text-white p-4 rounded-top-4">
+                    <h4 class="mb-0 fw-bold">Registrar Nueva Mascota</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label fw-bold"></label>
+                            <input asp-for="Nombre" class="form-control rounded-3" placeholder="Ej: Firulais" />
+                            <span asp-validation-for="Nombre" class="text-danger small"></span>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Especie" class="form-label fw-bold"></label>
+                                <input asp-for="Especie" class="form-control rounded-3" placeholder="Ej: Perro, Gato" />
+                                <span asp-validation-for="Especie" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Raza" class="form-label fw-bold"></label>
+                                <input asp-for="Raza" class="form-control rounded-3" placeholder="Ej: Labrador, Mestizo" />
+                                <span asp-validation-for="Raza" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Edad" class="form-label fw-bold"></label>
+                                <input asp-for="Edad" class="form-control rounded-3" type="number" min="0" placeholder="Ej: 3" />
+                                <span asp-validation-for="Edad" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Peso" class="form-label fw-bold"></label>
+                                <input asp-for="Peso" class="form-control rounded-3" type="number" step="any" min="0" placeholder="Ej: 12.5" />
+                                <span asp-validation-for="Peso" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between pt-3">
+                            <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Cancelar</a>
+                            <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm">Guardar Mascota</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
