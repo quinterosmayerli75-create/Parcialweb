@@ -1,24 +1,45 @@
+<<<<<<< HEAD
+﻿<!DOCTYPE html>
+=======
 ﻿@{
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
 }
 <!DOCTYPE html>
+>>>>>>> origin/main
 <html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Clínica Veterinaria</title>
+<<<<<<< HEAD
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Estilos Personalizados -->
+=======
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <!-- Iconos de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+>>>>>>> origin/main
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ClinicaVeterinaria.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="bg-light">
     <header>
+<<<<<<< HEAD
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-heart-pulse-fill me-1"></i> VetClinica
+=======
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 py-3 shadow-sm">
             <div class="container">
                 <a class="navbar-brand fw-bold text-primary fs-4" asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="bi bi-hospital me-2"></i>Clínica Veterinaria
+>>>>>>> origin/main
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +48,59 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 ms-3">
                         <li class="nav-item">
+<<<<<<< HEAD
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house-door me-1"></i> Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="ServicioVeterinarios" asp-action="Index">
+                                <i class="bi bi-journal-medical me-1"></i> Servicios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Citas" asp-action="Index">
+                                <i class="bi bi-calendar-event me-1"></i> Citas
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-file-earmark-pdf me-1"></i> Reportes PDF
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Reportes" asp-action="ServiciosPDF" target="_blank">
+                                        <i class="bi bi-file-pdf me-2 text-danger"></i>Catálogo de Servicios
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Reportes" asp-action="ListadoCitasPDF" target="_blank">
+                                        <i class="bi bi-file-pdf me-2 text-danger"></i>Agenda General de Citas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Reportes" asp-action="ServiciosMasSolicitadosPDF" target="_blank">
+                                        <i class="bi bi-file-pdf me-2 text-danger"></i>Servicios Más Solicitados
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Reportes" asp-action="CitasPorUsuarioPDF">
+                                        <i class="bi bi-file-pdf me-2 text-danger"></i>Citas por Cliente
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Sección de Sesión -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">
+                                <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión
+=======
                             <a class="nav-link text-dark fw-semibold @(currentController == "Home" ? "active text-primary" : "")" asp-area="" asp-controller="Home" asp-action="Index">
                                 <i class="bi bi-house-door me-1"></i>Inicio
+>>>>>>> origin/main
                             </a>
                         </li>
 
@@ -57,14 +129,20 @@
     </header>
 
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-4">
             @RenderBody()
         </main>
     </div>
 
+<<<<<<< HEAD
+    <footer class="border-top footer text-muted bg-white py-3 mt-auto">
+        <div class="container text-center">
+            &copy; 2026 - Clínica Veterinaria - Sistema de Gestión de Citas y Servicios
+=======
     <footer class="border-top footer text-muted bg-light py-3 mt-auto">
         <div class="container text-center">
             &copy; 2026 - Clínica Veterinaria - Todos los derechos reservados
+>>>>>>> origin/main
         </div>
     </footer>
 

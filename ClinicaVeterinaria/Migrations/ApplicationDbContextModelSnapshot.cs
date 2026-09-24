@@ -17,11 +17,46 @@ namespace ClinicaVeterinaria.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+<<<<<<< HEAD
+                .HasAnnotation("ProductVersion", "8.0.11")
+=======
                 .HasAnnotation("ProductVersion", "8.0.0")
+>>>>>>> origin/main
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+<<<<<<< HEAD
+            modelBuilder.Entity("ClinicaVeterinaria.Models.Cita", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MascotaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicioVeterinarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MascotaId");
+
+                    b.HasIndex("ServicioVeterinarioId");
+
+                    b.ToTable("Citas");
+=======
             modelBuilder.Entity("ClinicaVeterinaria.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -90,6 +125,7 @@ namespace ClinicaVeterinaria.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+>>>>>>> origin/main
                 });
 
             modelBuilder.Entity("ClinicaVeterinaria.Models.Mascota", b =>
@@ -100,6 +136,58 @@ namespace ClinicaVeterinaria.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+<<<<<<< HEAD
+                    b.Property<string>("Especie")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Raza")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UsuarioId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Mascotas");
+                });
+
+            modelBuilder.Entity("ClinicaVeterinaria.Models.ServicioVeterinario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ServiciosVeterinarios");
+                });
+
+=======
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
@@ -131,6 +219,7 @@ namespace ClinicaVeterinaria.Migrations
                     b.ToTable("Mascotas");
                 });
 
+>>>>>>> origin/main
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -183,6 +272,74 @@ namespace ClinicaVeterinaria.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
+<<<<<<< HEAD
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+=======
+>>>>>>> origin/main
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -211,12 +368,19 @@ namespace ClinicaVeterinaria.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
+<<<<<<< HEAD
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+=======
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
+>>>>>>> origin/main
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -253,12 +417,19 @@ namespace ClinicaVeterinaria.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
+<<<<<<< HEAD
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+=======
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
+>>>>>>> origin/main
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -268,6 +439,25 @@ namespace ClinicaVeterinaria.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+<<<<<<< HEAD
+            modelBuilder.Entity("ClinicaVeterinaria.Models.Cita", b =>
+                {
+                    b.HasOne("ClinicaVeterinaria.Models.Mascota", "Mascota")
+                        .WithMany("Citas")
+                        .HasForeignKey("MascotaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClinicaVeterinaria.Models.ServicioVeterinario", "ServicioVeterinario")
+                        .WithMany("Citas")
+                        .HasForeignKey("ServicioVeterinarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Mascota");
+
+                    b.Navigation("ServicioVeterinario");
+=======
             modelBuilder.Entity("ClinicaVeterinaria.Models.Mascota", b =>
                 {
                     b.HasOne("ClinicaVeterinaria.Models.ApplicationUser", "Usuario")
@@ -276,6 +466,7 @@ namespace ClinicaVeterinaria.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Usuario");
+>>>>>>> origin/main
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -289,7 +480,11 @@ namespace ClinicaVeterinaria.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
+<<<<<<< HEAD
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+=======
                     b.HasOne("ClinicaVeterinaria.Models.ApplicationUser", null)
+>>>>>>> origin/main
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -298,7 +493,11 @@ namespace ClinicaVeterinaria.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
+<<<<<<< HEAD
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+=======
                     b.HasOne("ClinicaVeterinaria.Models.ApplicationUser", null)
+>>>>>>> origin/main
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -313,7 +512,11 @@ namespace ClinicaVeterinaria.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+<<<<<<< HEAD
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+=======
                     b.HasOne("ClinicaVeterinaria.Models.ApplicationUser", null)
+>>>>>>> origin/main
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -322,16 +525,31 @@ namespace ClinicaVeterinaria.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
+<<<<<<< HEAD
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+=======
                     b.HasOne("ClinicaVeterinaria.Models.ApplicationUser", null)
+>>>>>>> origin/main
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
+<<<<<<< HEAD
+            modelBuilder.Entity("ClinicaVeterinaria.Models.Mascota", b =>
+                {
+                    b.Navigation("Citas");
+                });
+
+            modelBuilder.Entity("ClinicaVeterinaria.Models.ServicioVeterinario", b =>
+                {
+                    b.Navigation("Citas");
+=======
             modelBuilder.Entity("ClinicaVeterinaria.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Mascotas");
+>>>>>>> origin/main
                 });
 #pragma warning restore 612, 618
         }

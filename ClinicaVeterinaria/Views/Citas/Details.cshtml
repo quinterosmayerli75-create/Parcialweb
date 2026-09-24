@@ -1,0 +1,71 @@
+@model ClinicaVeterinaria.Models.Cita
+
+@{
+    ViewData["Title"] = "Detalles de la Cita";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-info text-white py-3">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-file-earmark-text me-2"></i>Detalles de la Cita Médica
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label class="text-muted fw-bold d-block small mb-1">Fecha y Hora</label>
+                            <p class="fs-6 fw-semibold text-dark mb-0">
+                                <i class="bi bi-calendar-event me-2 text-info"></i>@Model.Fecha.ToString("g")
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="text-muted fw-bold d-block small mb-1">Estado</label>
+                            @if (Model.Estado == "Atendida")
+                            {
+                                <span class="badge bg-success px-3 py-2"><i class="bi bi-check-circle me-1"></i> Atendida</span>
+                            }
+                            else if (Model.Estado == "Cancelada")
+                            {
+                                <span class="badge bg-danger px-3 py-2"><i class="bi bi-x-circle me-1"></i> Cancelada</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark px-3 py-2"><i class="bi bi-clock me-1"></i> Pendiente</span>
+                            }
+                        </div>
+
+                        <hr class="my-3" />
+
+                        <div class="col-sm-6">
+                            <label class="text-muted fw-bold d-block small mb-1">Mascota</label>
+                            <p class="fs-6 text-dark mb-0">
+                                <i class="bi bi-heart-pulse me-2 text-danger"></i>@(Model.Mascota?.Nombre ?? "No asignado")
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="text-muted fw-bold d-block small mb-1">Servicio Veterinario</label>
+                            <p class="fs-6 text-dark mb-0">
+                                <i class="bi bi-activity me-2 text-primary"></i>@(Model.ServicioVeterinario?.Nombre ?? "No asignado")
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between pt-4 border-top mt-4">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-1"></i> Volver al listado
+                        </a>
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning fw-bold">
+                                <i class="bi bi-pencil me-1"></i> Editar Cita
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

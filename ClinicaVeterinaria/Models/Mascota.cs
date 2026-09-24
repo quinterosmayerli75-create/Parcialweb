@@ -6,6 +6,23 @@ namespace ClinicaVeterinaria.Models
     {
         public int Id { get; set; }
 
+<<<<<<< HEAD
+        [Required]
+        [StringLength(100)]
+        public string Nombre { get; set; } = string.Empty;
+
+        [Required]
+        [StringLength(50)]
+        public string Especie { get; set; } = string.Empty;
+
+        [Required]
+        [StringLength(50)]
+        public string Raza { get; set; } = string.Empty;
+
+        public string UsuarioId { get; set; } = string.Empty;
+
+        public virtual ICollection<Cita>? Citas { get; set; }
+=======
         [Required(ErrorMessage = "El nombre es obligatorio")]
         [StringLength(50, ErrorMessage = "El nombre no puede superar los 50 caracteres")]
         public string Nombre { get; set; } = string.Empty;
@@ -26,5 +43,6 @@ namespace ClinicaVeterinaria.Models
         // Relación con el usuario (cliente)
         public string? UsuarioId { get; set; }
         public ApplicationUser? Usuario { get; set; }
+>>>>>>> origin/main
     }
 }
