@@ -1,0 +1,49 @@
+@model ClinicaVeterinaria.Models.ServicioVeterinario
+
+@{
+    ViewData["Title"] = "Eliminar Servicio";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-3 border-danger">
+                <div class="card-header bg-danger text-white py-3">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-exclamation-triangle me-2"></i>Confirmar Eliminación
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <p class="text-muted mb-4">¿Está seguro de que desea eliminar permanentemente este servicio médico?</p>
+
+                    <div class="bg-light p-3 rounded mb-4 border">
+                        <div class="mb-2">
+                            <span class="text-secondary fw-bold small d-block">Servicio:</span>
+                            <span class="fs-5 fw-bold text-dark">@Model.Nombre</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-secondary fw-bold small d-block">Descripción:</span>
+                            <span class="text-muted">@(string.IsNullOrEmpty(Model.Descripcion) ? "N/A" : Model.Descripcion)</span>
+                        </div>
+                        <div>
+                            <span class="text-secondary fw-bold small d-block">Precio:</span>
+                            <span class="fs-6 fw-bold text-success">$@Model.Precio.ToString("F2")</span>
+                        </div>
+                    </div>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex justify-content-between pt-2">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-1"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-danger px-4 fw-bold">
+                                <i class="bi bi-trash me-1"></i> Eliminar Definitivamente
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
